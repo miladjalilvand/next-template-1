@@ -2,7 +2,9 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { NextUIProvider } from "@nextui-org/react";
 import { ThemeProvider } from "next-themes";
-import Navbar from "./components/navbar/navabar";
+import Navbar from "./components/navbar";
+import { HeroUIProvider } from "@heroui/react";
+
 
 
 const geistSans = localFont({
@@ -25,12 +27,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" dir="rtl" suppressHydrationWarning>
       <body
-        className={`2xl:px-64 ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={` min-h-screen ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider >
+          <HeroUIProvider>
       <NextUIProvider>
+        {/* <Navbar/> */}
         <Navbar/>
-          {children} </NextUIProvider>
+          {children} </NextUIProvider></HeroUIProvider>
 
         </ThemeProvider>
       
